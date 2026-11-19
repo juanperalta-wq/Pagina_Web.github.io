@@ -21,6 +21,7 @@ const state = {
   amplitude: 0.8,
   speed: 1,
   mode: 'wireframe',
+  lang: 'es',
   scroll: 0,
   scrollTarget: 0
 };
@@ -59,6 +60,303 @@ const dom = {
   modal: document.getElementById('project-modal'),
   modalBody: document.getElementById('modal-body')
 };
+
+/* ------------------------------------------------------------
+   1B. LANGUAGE / I18N
+   ------------------------------------------------------------ */
+
+const translations = {
+  es: {
+    'meta.title': 'DEV//SIM_01 — Ingeniero de Videojuegos y Simulaciones',
+    'meta.description': 'Portafolio de desarrollo de videojuegos, simulaciones en tiempo real, gráficos 3D y experiencias VR.',
+
+    'a11y.skip': 'Ir al contenido',
+    'a11y.logo': 'DEV SIM 01, inicio',
+    'a11y.mainNav': 'Navegación principal',
+    'a11y.heroVisual': 'Visualización de motor en tiempo real',
+    'a11y.filters': 'Filtrar proyectos por categoría',
+    'a11y.inspector': 'Inspector de motor gráfico',
+    'a11y.renderMode': 'Modo de render',
+    'a11y.waveSpeed': 'Velocidad de las ondas',
+    'a11y.closeModal': 'Cerrar ficha técnica',
+    'a11y.langToggle': 'Idioma actual: español. Cambiar a inglés',
+    'a11y.langToggleTitle': 'Cambiar a inglés',
+
+    'nav.projects': 'Proyectos',
+    'nav.lab': 'Lab & Física',
+    'nav.stack': 'Stack',
+    'nav.contact': 'Contacto',
+
+    'hero.title1': 'Creación de',
+    'hero.title2': 'Videojuegos',
+    'hero.title3': 'Simulaciones',
+    'hero.subtitle': 'Desarrollo de mecánicas de gameplay, sistemas físicos en tiempo real, entornos 3D interactivos y experiencias VR/AR optimizadas.',
+    'hero.explore': 'Explorar Proyectos',
+    'hero.try': 'Probar Simulación',
+    'hero.move': 'MUEVE EL CURSOR',
+
+    'projects.title': 'Proyectos',
+    'projects.titleAccent': 'Destacados',
+    'projects.desc': 'Sistemas jugables, tecnología de render y simulaciones de alto rendimiento construidas para producción.',
+    'projects.entries': 'ENTRADAS',
+
+    'filter.all': 'Todos',
+    'filter.game': 'Videojuegos',
+    'filter.sim': 'Simulaciones',
+    'filter.tech': 'Shaders / Tech',
+
+    'card.viewSheet': 'Ver Ficha Técnica',
+    'card1.tag': 'SIMULACIÓN FÍSICA // VR',
+    'card1.preview': 'VISTA PREVIA / REEL',
+    'card1.title': 'Simulador Dinámico de Fluidos y Estructuras',
+    'card1.desc': 'Entorno de entrenamiento industrial en realidad virtual con destrucción procedural en tiempo real y telemetría de estrés estructural.',
+    'card2.tag': 'VIDEOJUEGO // ACTION',
+    'card2.preview': 'DEMO JUGABLE',
+    'card2.meta': 'Unity • C# • IA Behaviour Trees',
+    'card2.title': 'Protocolo Aegis: Tactical Shooter',
+    'card2.desc': 'Sistema de combate táctico con IA enemiga adaptativa, cobertura dinámica y balística calculada por trayectoria.',
+    'card2.webgl': 'Jugar WebGL ↗',
+    'card3.tag': 'SHADER // GPU',
+    'card3.preview': 'TECH BREAKDOWN',
+    'card3.title': 'Simulación de Multitudes (100k Entidades)',
+    'card3.desc': 'Algoritmo Boids ejecutado íntegramente en GPU mediante Compute Shaders para simular enjambres masivos a 120 FPS.',
+    'card3.code': 'Código ↗',
+
+    'lab.title': 'Sandbox',
+    'lab.titleAccent': '/ Lab de Simulación',
+    'lab.desc': 'El terreno del fondo es una malla WebGL en vivo. Modifica sus parámetros y observa el resultado en tiempo real.',
+    'lab.copy': 'El fondo de este portafolio renderiza un terreno topográfico procedural con Three.js: ondas calculadas en CPU, malla dinámica y luz volumétrica cian / violeta que responde al cursor y al scroll.',
+    'lab.amplitude': 'AMPLITUD DE ONDAS',
+    'lab.density': 'DENSIDAD DE MALLA',
+    'lab.reset': 'REINICIAR SISTEMA',
+
+    'stack.title': 'Stack',
+    'stack.titleAccent': 'Técnico',
+    'stack.desc': 'Herramientas, lenguajes y pipeline usados a diario para llevar prototipos hasta build final.',
+    'stack.engines': 'Motores & Frameworks',
+    'stack.programming': 'Programación & Gráficos',
+    'stack.math': 'Matemática Vectorial y Cinemática',
+    'stack.pipeline': 'Pipeline & Herramientas',
+
+    'contact.title': '¿Construimos el próximo',
+    'contact.titleAccent': 'mundo virtual?',
+    'contact.desc': 'Disponible para estudios de videojuegos, proyectos de simulación industrial, VR/AR y desarrollo técnico.',
+
+    'inspector.solid': 'SÓLIDO',
+    'mode.solid': 'SÓLIDO',
+    'mode.wireframe': 'WIREFRAME',
+    'mode.solidScope': 'SOLID',
+    'mode.wire': 'WIRE',
+
+    'modal.title': 'Ficha técnica',
+    'modal.challenge': 'Reto Técnico',
+    'modal.solution': 'Arquitectura & Solución',
+    'modal.result': 'RESULTADO / TELEMETRÍA',
+
+    'lang.switched': 'Idioma cambiado a español.'
+  },
+
+  en: {
+    'meta.title': 'DEV//SIM_01 — Game Dev & Simulation Engineer',
+    'meta.description': 'Game development, real-time simulation, 3D graphics and VR experience portfolio.',
+
+    'a11y.skip': 'Skip to content',
+    'a11y.logo': 'DEV SIM 01, home',
+    'a11y.mainNav': 'Main navigation',
+    'a11y.heroVisual': 'Real-time engine visualization',
+    'a11y.filters': 'Filter projects by category',
+    'a11y.inspector': 'Graphics engine inspector',
+    'a11y.renderMode': 'Render mode',
+    'a11y.waveSpeed': 'Wave velocity',
+    'a11y.closeModal': 'Close tech sheet',
+    'a11y.langToggle': 'Current language: English. Switch to Spanish',
+    'a11y.langToggleTitle': 'Switch to Spanish',
+
+    'nav.projects': 'Projects',
+    'nav.lab': 'Lab & Physics',
+    'nav.stack': 'Stack',
+    'nav.contact': 'Contact',
+
+    'hero.title1': 'Building',
+    'hero.title2': 'Games',
+    'hero.title3': 'Simulations',
+    'hero.subtitle': 'Development of gameplay mechanics, real-time physics systems, interactive 3D environments and optimized VR/AR experiences.',
+    'hero.explore': 'Explore Projects',
+    'hero.try': 'Try Simulation',
+    'hero.move': 'MOVE THE CURSOR',
+
+    'projects.title': 'Featured',
+    'projects.titleAccent': 'Projects',
+    'projects.desc': 'Gameplay systems, rendering technology and high-performance simulations built for production.',
+    'projects.entries': 'ENTRIES',
+
+    'filter.all': 'All',
+    'filter.game': 'Games',
+    'filter.sim': 'Simulations',
+    'filter.tech': 'Shaders / Tech',
+
+    'card.viewSheet': 'View Tech Sheet',
+    'card1.tag': 'PHYSICS SIMULATION // VR',
+    'card1.preview': 'PREVIEW / REEL',
+    'card1.title': 'Dynamic Fluid & Structural Simulator',
+    'card1.desc': 'Industrial VR training environment with real-time procedural destruction and structural stress telemetry.',
+    'card2.tag': 'GAME // ACTION',
+    'card2.preview': 'PLAYABLE DEMO',
+    'card2.meta': 'Unity • C# • AI Behaviour Trees',
+    'card2.title': 'Aegis Protocol: Tactical Shooter',
+    'card2.desc': 'Tactical combat system with adaptive enemy AI, dynamic cover and trajectory-based ballistics.',
+    'card2.webgl': 'Play WebGL ↗',
+    'card3.tag': 'SHADER // GPU',
+    'card3.preview': 'TECH BREAKDOWN',
+    'card3.title': 'Crowd Simulation (100k Entities)',
+    'card3.desc': 'Boids algorithm running entirely on the GPU through Compute Shaders to simulate massive swarms at 120 FPS.',
+    'card3.code': 'Code ↗',
+
+    'lab.title': 'Sandbox',
+    'lab.titleAccent': '/ Simulation Lab',
+    'lab.desc': 'The background terrain is a live WebGL mesh. Adjust its parameters and watch the result in real time.',
+    'lab.copy': 'This portfolio background renders a procedural topographic terrain with Three.js: CPU-computed waves, a dynamic mesh and cyan / violet volumetric light that reacts to the cursor and scroll.',
+    'lab.amplitude': 'WAVE AMPLITUDE',
+    'lab.density': 'MESH DENSITY',
+    'lab.reset': 'RESET SYSTEM',
+
+    'stack.title': 'Tech',
+    'stack.titleAccent': 'Stack',
+    'stack.desc': 'Tools, languages and pipeline used daily to take prototypes all the way to final build.',
+    'stack.engines': 'Engines & Frameworks',
+    'stack.programming': 'Programming & Graphics',
+    'stack.math': 'Vector Math and Kinematics',
+    'stack.pipeline': 'Pipeline & Tools',
+
+    'contact.title': 'Shall we build the next',
+    'contact.titleAccent': 'virtual world?',
+    'contact.desc': 'Available for game studios, industrial simulation projects, VR/AR and technical development.',
+
+    'inspector.solid': 'SOLID',
+    'mode.solid': 'SOLID',
+    'mode.wireframe': 'WIREFRAME',
+    'mode.solidScope': 'SOLID',
+    'mode.wire': 'WIRE',
+
+    'modal.title': 'Tech Sheet',
+    'modal.challenge': 'Technical Challenge',
+    'modal.solution': 'Architecture & Solution',
+    'modal.result': 'RESULT / TELEMETRY',
+
+    'lang.switched': 'Language switched to English.'
+  }
+};
+
+const LANG_STORAGE_KEY = 'devsim.lang';
+let scrambleAbort = null;
+let currentModalId = null;
+
+function t(key, lang) {
+  const dictionary = translations[lang || state.lang] || translations.es;
+  const value = dictionary[key];
+  return typeof value === 'string' ? value : (translations.es[key] || '');
+}
+
+function readStoredLang() {
+  try {
+    const saved = window.localStorage.getItem(LANG_STORAGE_KEY);
+    return saved === 'en' || saved === 'es' ? saved : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function applyStaticTranslations(lang) {
+  document.querySelectorAll('[data-i18n]').forEach((element) => {
+    const value = translations[lang][element.dataset.i18n];
+    if (typeof value === 'string') element.textContent = value;
+  });
+
+  document.querySelectorAll('[data-i18n-aria]').forEach((element) => {
+    const value = translations[lang][element.dataset.i18nAria];
+    if (typeof value === 'string') element.setAttribute('aria-label', value);
+  });
+
+  const heroTitle = document.getElementById('heroTitle');
+  if (heroTitle) {
+    const label = heroTitle.textContent.replace(/\s+/g, ' ').trim();
+    if (label) heroTitle.setAttribute('aria-label', label);
+  }
+}
+
+function updateLanguageMetadata(lang) {
+  document.title = t('meta.title', lang);
+  const description = document.querySelector('meta[name="description"]');
+  if (description) description.setAttribute('content', t('meta.description', lang));
+}
+
+function updateLanguageToggle(lang) {
+  const toggle = document.getElementById('langToggle');
+  if (!toggle) return;
+
+  const label = t('a11y.langToggle', lang);
+  toggle.setAttribute('aria-label', label);
+  toggle.setAttribute('title', t('a11y.langToggleTitle', lang));
+  toggle.setAttribute('aria-pressed', String(lang === 'en'));
+
+  toggle.querySelectorAll('.lang-opt').forEach((option) => {
+    option.classList.toggle('is-active', option.dataset.lang === lang);
+  });
+}
+
+function updateRenderModeLabels() {
+  if (dom.renderModeLabel) {
+    dom.renderModeLabel.textContent = state.mode === 'solid' ? t('mode.solid') : t('mode.wireframe');
+  }
+  if (dom.scopeMode) {
+    dom.scopeMode.textContent = state.mode === 'solid' ? t('mode.solidScope') : t('mode.wire');
+  }
+}
+
+function announceLanguage(lang) {
+  const status = document.getElementById('langStatus');
+  if (status) status.textContent = t('lang.switched', lang);
+}
+
+function applyLanguage(lang, options) {
+  const next = translations[lang] ? lang : 'es';
+  const announce = !options || options.announce !== false;
+
+  if (typeof scrambleAbort === 'function') scrambleAbort();
+
+  state.lang = next;
+
+  try {
+    window.localStorage.setItem(LANG_STORAGE_KEY, next);
+  } catch (error) {
+    /* Storage unavailable: language still applies for this session. */
+  }
+
+  document.documentElement.lang = next;
+  applyStaticTranslations(next);
+  updateLanguageMetadata(next);
+  updateLanguageToggle(next);
+  updateRenderModeLabels();
+
+  if (currentModalId && dom.modal && dom.modal.classList.contains('open')) {
+    renderModal(currentModalId);
+  }
+
+  if (announce) announceLanguage(next);
+}
+
+function initI18n() {
+  const toggle = document.getElementById('langToggle');
+  const initial = readStoredLang() || 'es';
+
+  applyLanguage(initial, { announce: false });
+
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      applyLanguage(state.lang === 'es' ? 'en' : 'es');
+    });
+  }
+}
 
 /* ------------------------------------------------------------
    2. THREE.JS TOPOGRAPHIC SCENE
@@ -406,12 +704,7 @@ function setRenderMode(mode) {
     button.classList.toggle('active', button.dataset.renderMode === state.mode);
   });
 
-  if (dom.renderModeLabel) {
-    dom.renderModeLabel.textContent = state.mode === 'solid' ? 'SÓLIDO' : 'WIREFRAME';
-  }
-  if (dom.scopeMode) {
-    dom.scopeMode.textContent = state.mode === 'solid' ? 'SOLID' : 'WIRE';
-  }
+  updateRenderModeLabels();
 
   if (!three.ready) return;
   three.mesh.material = state.mode === 'solid' ? three.solidMat : three.wireMat;
@@ -759,43 +1052,82 @@ function initFilters() {
 }
 
 const projectDetails = {
-  sim1: {
-    title: 'Simulador Dinámico de Fluidos y Estructuras',
-    tech: 'Unreal Engine 5 • C++ • Chaos Physics • OpenXR',
-    challenge: 'Simular fracturas en tiempo real y flujo de fluidos manteniendo 90 FPS estables en visores VR standalone.',
-    solution: 'Implementación de pre-fractura jerárquica mediante Chaos Geometry Collections, LODs dinámicos basados en distancia al jugador y cálculo asíncrono de colisiones en hilos secundarios.',
-    metrics: 'Reducción del 42% en tiempo de frame de CPU y latencia motion-to-photon inferior a 18ms.'
+  es: {
+    sim1: {
+      title: 'Simulador Dinámico de Fluidos y Estructuras',
+      tech: 'Unreal Engine 5 • C++ • Chaos Physics • OpenXR',
+      challenge: 'Simular fracturas en tiempo real y flujo de fluidos manteniendo 90 FPS estables en visores VR standalone.',
+      solution: 'Implementación de pre-fractura jerárquica mediante Chaos Geometry Collections, LODs dinámicos basados en distancia al jugador y cálculo asíncrono de colisiones en hilos secundarios.',
+      metrics: 'Reducción del 42% en tiempo de frame de CPU y latencia motion-to-photon inferior a 18ms.'
+    },
+    game1: {
+      title: 'Protocolo Aegis: Tactical Shooter',
+      tech: 'Unity • C# • NavMesh • Behaviour Trees',
+      challenge: 'Crear escuadrones enemigos capaces de flanquear y coordinar fuego de supresión sin depender de rutas pre-programadas.',
+      solution: 'Sistema de evaluación táctica de puntos de cobertura mediante Raycasting espacial y árboles de comportamiento modulares.',
+      metrics: 'Soporte para 24 agentes simultáneos con un costo menor a 1.5ms por frame.'
+    },
+    tech1: {
+      title: 'Simulación de Multitudes (100k Entidades)',
+      tech: 'HLSL • Compute Shaders • GPU Instancing',
+      challenge: 'Renderizar y simular el comportamiento colectivo (Boids) de 100,000 entidades sin saturar el bus CPU-GPU.',
+      solution: 'Almacenamiento de posiciones y velocidades en ComputeBuffers y ejecución paralela de reglas de cohesión, alineación y separación directamente en la GPU.',
+      metrics: '120 FPS constantes en resolución 1440p con 100,000 instancias activas.'
+    }
   },
-  game1: {
-    title: 'Protocolo Aegis: Tactical Shooter',
-    tech: 'Unity • C# • NavMesh • Behaviour Trees',
-    challenge: 'Crear escuadrones enemigos capaces de flanquear y coordinar fuego de supresión sin depender de rutas pre-programadas.',
-    solution: 'Sistema de evaluación táctica de puntos de cobertura mediante Raycasting espacial y árboles de comportamiento modulares.',
-    metrics: 'Soporte para 24 agentes simultáneos con un costo menor a 1.5ms por frame.'
-  },
-  tech1: {
-    title: 'Simulación de Multitudes (100k Entidades)',
-    tech: 'HLSL • Compute Shaders • GPU Instancing',
-    challenge: 'Renderizar y simular el comportamiento colectivo (Boids) de 100,000 entidades sin saturar el bus CPU-GPU.',
-    solution: 'Almacenamiento de posiciones y velocidades en ComputeBuffers y ejecución paralela de reglas de cohesión, alineación y separación directamente en la GPU.',
-    metrics: '120 FPS constantes en resolución 1440p con 100,000 instancias activas.'
+  en: {
+    sim1: {
+      title: 'Dynamic Fluid & Structural Simulator',
+      tech: 'Unreal Engine 5 • C++ • Chaos Physics • OpenXR',
+      challenge: 'Simulate real-time fractures and fluid flow while maintaining a stable 90 FPS on standalone VR headsets.',
+      solution: 'Hierarchical pre-fracturing with Chaos Geometry Collections, dynamic distance-based LODs and asynchronous collision computation on worker threads.',
+      metrics: '42% reduction in CPU frame time and motion-to-photon latency below 18ms.'
+    },
+    game1: {
+      title: 'Aegis Protocol: Tactical Shooter',
+      tech: 'Unity • C# • NavMesh • Behaviour Trees',
+      challenge: 'Create enemy squads capable of flanking and coordinating suppressive fire without relying on pre-scripted routes.',
+      solution: 'Tactical evaluation of cover points using spatial raycasting and modular behaviour trees.',
+      metrics: 'Support for 24 simultaneous agents at a cost below 1.5ms per frame.'
+    },
+    tech1: {
+      title: 'Crowd Simulation (100k Entities)',
+      tech: 'HLSL • Compute Shaders • GPU Instancing',
+      challenge: 'Render and simulate the collective Boids behaviour of 100,000 entities without saturating the CPU-GPU bus.',
+      solution: 'Positions and velocities stored in ComputeBuffers with parallel execution of cohesion, alignment and separation rules directly on the GPU.',
+      metrics: 'Constant 120 FPS at 1440p with 100,000 active instances.'
+    }
   }
 };
 
 let lastFocusedElement = null;
 
-function openModal(id) {
-  const data = projectDetails[id];
-  if (!data || !dom.modal || !dom.modalBody) return;
+function getProjectDetails(id) {
+  const language = projectDetails[state.lang] || projectDetails.es;
+  return language[id] || projectDetails.es[id];
+}
 
-  lastFocusedElement = document.activeElement;
+function renderModal(id) {
+  const data = getProjectDetails(id);
+  if (!data || !dom.modalBody) return false;
 
   dom.modalBody.innerHTML =
     '<span class="meta"><span class="meta-dot"></span>' + data.tech + '</span>' +
     '<h3 id="modalTitle">' + data.title + '</h3>' +
-    '<div class="modal-field"><strong>Reto Técnico</strong><p>' + data.challenge + '</p></div>' +
-    '<div class="modal-field"><strong>Arquitectura &amp; Solución</strong><p>' + data.solution + '</p></div>' +
-    '<div class="modal-result"><span>RESULTADO / TELEMETRÍA</span>' + data.metrics + '</div>';
+    '<div class="modal-field"><strong>' + t('modal.challenge') + '</strong><p>' + data.challenge + '</p></div>' +
+    '<div class="modal-field"><strong>' + t('modal.solution') + '</strong><p>' + data.solution + '</p></div>' +
+    '<div class="modal-result"><span>' + t('modal.result') + '</span>' + data.metrics + '</div>';
+
+  return true;
+}
+
+function openModal(id) {
+  const data = getProjectDetails(id);
+  if (!data || !dom.modal || !dom.modalBody) return;
+
+  currentModalId = id;
+  lastFocusedElement = document.activeElement;
+  renderModal(id);
 
   dom.modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -822,6 +1154,7 @@ function closeModal() {
   if (!dom.modal) return;
   dom.modal.classList.remove('open');
   document.body.style.overflow = '';
+  currentModalId = null;
 
   if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
     lastFocusedElement.focus({ preventScroll: true });
@@ -1093,8 +1426,21 @@ function initScramble() {
   const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/[]{}=+*^?#$%&';
   const startTime = performance.now() + 380;
   const revealWindow = 1250;
+  let frameId = 0;
+  let aborted = false;
+
+  scrambleAbort = () => {
+    aborted = true;
+    window.cancelAnimationFrame(frameId);
+    nodes.forEach((node, index) => {
+      node.nodeValue = originals[index];
+    });
+    scrambleAbort = null;
+  };
 
   function frame(now) {
+    if (aborted) return;
+
     const elapsed = now - startTime;
     let finished = true;
 
@@ -1128,15 +1474,16 @@ function initScramble() {
     if (elapsed < 0) finished = false;
 
     if (!finished) {
-      requestAnimationFrame(frame);
+      frameId = requestAnimationFrame(frame);
     } else {
       nodes.forEach((node, index) => {
         node.nodeValue = originals[index];
       });
+      scrambleAbort = null;
     }
   }
 
-  requestAnimationFrame(frame);
+  frameId = requestAnimationFrame(frame);
 }
 
 function initAnimations() {
@@ -1185,6 +1532,7 @@ function init() {
   window.__revealReady = true;
 
   try {
+    initI18n();
     initPointer();
     initScroll();
     initCursor();
