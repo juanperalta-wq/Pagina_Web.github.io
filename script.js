@@ -6,7 +6,7 @@
    1. State & helpers
    2. Three.js topographic scene
    3. Live FPS telemetry
-   4. HUD (cursor, scroll, coordinates)
+   4. HUD (scroll, coordinates)
    5. Inspector + Lab controls
    6. Project filters & modal
    7. GSAP entrance / Slow-UP / scramble
@@ -22,6 +22,7 @@ const state = {
   speed: 1,
   mode: 'wireframe',
   lang: 'es',
+  filter: 'all',
   scroll: 0,
   scrollTarget: 0
 };
@@ -68,7 +69,7 @@ const dom = {
 const translations = {
   es: {
     'meta.title': 'DEV//SIM_01 — Ingeniero de Videojuegos y Simulaciones',
-    'meta.description': 'Portafolio de desarrollo de videojuegos, simulaciones en tiempo real, gráficos 3D y experiencias VR.',
+    'meta.description': 'Portafolio de desarrollo de videojuegos con Unity y Unreal Engine, simulaciones en tiempo real, C#, gráficos 3D y experiencias VR.',
 
     'a11y.skip': 'Ir al contenido',
     'a11y.logo': 'DEV SIM 01, inicio',
@@ -90,7 +91,7 @@ const translations = {
     'hero.title1': 'Creación de',
     'hero.title2': 'Videojuegos',
     'hero.title3': 'Simulaciones',
-    'hero.subtitle': 'Desarrollo de mecánicas de gameplay, sistemas físicos en tiempo real, entornos 3D interactivos y experiencias VR/AR optimizadas.',
+    'hero.subtitle': 'Desarrollo de mecánicas de gameplay, sistemas físicos en tiempo real, entornos 3D interactivos y experiencias VR/AR optimizadas con Unity, Unreal Engine y C#.',
     'hero.explore': 'Explorar Proyectos',
     'hero.try': 'Probar Simulación',
     'hero.move': 'MUEVE EL CURSOR',
@@ -99,28 +100,11 @@ const translations = {
     'projects.titleAccent': 'Destacados',
     'projects.desc': 'Sistemas jugables, tecnología de render y simulaciones de alto rendimiento construidas para producción.',
     'projects.entries': 'ENTRADAS',
+    'projects.empty': 'No hay proyectos en la biblioteca todavía. Añade entradas en projects.json.',
 
     'filter.all': 'Todos',
-    'filter.game': 'Videojuegos',
-    'filter.sim': 'Simulaciones',
-    'filter.tech': 'Shaders / Tech',
 
     'card.viewSheet': 'Ver Ficha Técnica',
-    'card1.tag': 'SIMULACIÓN FÍSICA // VR',
-    'card1.preview': 'VISTA PREVIA / REEL',
-    'card1.title': 'Simulador Dinámico de Fluidos y Estructuras',
-    'card1.desc': 'Entorno de entrenamiento industrial en realidad virtual con destrucción procedural en tiempo real y telemetría de estrés estructural.',
-    'card2.tag': 'VIDEOJUEGO // ACTION',
-    'card2.preview': 'DEMO JUGABLE',
-    'card2.meta': 'Unity • C# • IA Behaviour Trees',
-    'card2.title': 'Protocolo Aegis: Tactical Shooter',
-    'card2.desc': 'Sistema de combate táctico con IA enemiga adaptativa, cobertura dinámica y balística calculada por trayectoria.',
-    'card2.webgl': 'Jugar WebGL ↗',
-    'card3.tag': 'SHADER // GPU',
-    'card3.preview': 'TECH BREAKDOWN',
-    'card3.title': 'Simulación de Multitudes (100k Entidades)',
-    'card3.desc': 'Algoritmo Boids ejecutado íntegramente en GPU mediante Compute Shaders para simular enjambres masivos a 120 FPS.',
-    'card3.code': 'Código ↗',
 
     'lab.title': 'Sandbox',
     'lab.titleAccent': '/ Lab de Simulación',
@@ -132,11 +116,13 @@ const translations = {
 
     'stack.title': 'Stack',
     'stack.titleAccent': 'Técnico',
-    'stack.desc': 'Herramientas, lenguajes y pipeline usados a diario para llevar prototipos hasta build final.',
-    'stack.engines': 'Motores & Frameworks',
-    'stack.programming': 'Programación & Gráficos',
-    'stack.math': 'Matemática Vectorial y Cinemática',
-    'stack.pipeline': 'Pipeline & Herramientas',
+    'stack.desc': 'Stack de desarrollo centrado en Unity, Unreal Engine y C# para crear videojuegos y simulaciones en tiempo real.',
+    'stack.engines': 'Motores',
+    'stack.programming': 'Lenguaje',
+    'stack.areas': 'Áreas de desarrollo',
+    'stack.areaPlay': 'Gameplay',
+    'stack.areaSystems': 'Sistemas interactivos',
+    'stack.areaSim': 'Simulación en tiempo real',
 
     'contact.title': '¿Construimos el próximo',
     'contact.titleAccent': 'mundo virtual?',
@@ -158,7 +144,7 @@ const translations = {
 
   en: {
     'meta.title': 'DEV//SIM_01 — Game Dev & Simulation Engineer',
-    'meta.description': 'Game development, real-time simulation, 3D graphics and VR experience portfolio.',
+    'meta.description': 'Game development portfolio with Unity and Unreal Engine, real-time simulation, C#, 3D graphics and VR experience.',
 
     'a11y.skip': 'Skip to content',
     'a11y.logo': 'DEV SIM 01, home',
@@ -180,7 +166,7 @@ const translations = {
     'hero.title1': 'Building',
     'hero.title2': 'Games',
     'hero.title3': 'Simulations',
-    'hero.subtitle': 'Development of gameplay mechanics, real-time physics systems, interactive 3D environments and optimized VR/AR experiences.',
+    'hero.subtitle': 'Development of gameplay mechanics, real-time physics systems, interactive 3D environments and optimized VR/AR experiences with Unity, Unreal Engine and C#.',
     'hero.explore': 'Explore Projects',
     'hero.try': 'Try Simulation',
     'hero.move': 'MOVE THE CURSOR',
@@ -189,28 +175,11 @@ const translations = {
     'projects.titleAccent': 'Projects',
     'projects.desc': 'Gameplay systems, rendering technology and high-performance simulations built for production.',
     'projects.entries': 'ENTRIES',
+    'projects.empty': 'No projects in the library yet. Add entries to projects.json.',
 
     'filter.all': 'All',
-    'filter.game': 'Games',
-    'filter.sim': 'Simulations',
-    'filter.tech': 'Shaders / Tech',
 
     'card.viewSheet': 'View Tech Sheet',
-    'card1.tag': 'PHYSICS SIMULATION // VR',
-    'card1.preview': 'PREVIEW / REEL',
-    'card1.title': 'Dynamic Fluid & Structural Simulator',
-    'card1.desc': 'Industrial VR training environment with real-time procedural destruction and structural stress telemetry.',
-    'card2.tag': 'GAME // ACTION',
-    'card2.preview': 'PLAYABLE DEMO',
-    'card2.meta': 'Unity • C# • AI Behaviour Trees',
-    'card2.title': 'Aegis Protocol: Tactical Shooter',
-    'card2.desc': 'Tactical combat system with adaptive enemy AI, dynamic cover and trajectory-based ballistics.',
-    'card2.webgl': 'Play WebGL ↗',
-    'card3.tag': 'SHADER // GPU',
-    'card3.preview': 'TECH BREAKDOWN',
-    'card3.title': 'Crowd Simulation (100k Entities)',
-    'card3.desc': 'Boids algorithm running entirely on the GPU through Compute Shaders to simulate massive swarms at 120 FPS.',
-    'card3.code': 'Code ↗',
 
     'lab.title': 'Sandbox',
     'lab.titleAccent': '/ Simulation Lab',
@@ -222,11 +191,13 @@ const translations = {
 
     'stack.title': 'Tech',
     'stack.titleAccent': 'Stack',
-    'stack.desc': 'Tools, languages and pipeline used daily to take prototypes all the way to final build.',
-    'stack.engines': 'Engines & Frameworks',
-    'stack.programming': 'Programming & Graphics',
-    'stack.math': 'Vector Math and Kinematics',
-    'stack.pipeline': 'Pipeline & Tools',
+    'stack.desc': 'Development stack focused on Unity, Unreal Engine and C# for building games and real-time simulations.',
+    'stack.engines': 'Engines',
+    'stack.programming': 'Language',
+    'stack.areas': 'Development Areas',
+    'stack.areaPlay': 'Gameplay',
+    'stack.areaSystems': 'Interactive Systems',
+    'stack.areaSim': 'Real-Time Simulation',
 
     'contact.title': 'Shall we build the next',
     'contact.titleAccent': 'virtual world?',
@@ -337,6 +308,7 @@ function applyLanguage(lang, options) {
   updateLanguageMetadata(next);
   updateLanguageToggle(next);
   updateRenderModeLabels();
+  updateProjectCardsLanguage();
 
   if (currentModalId && dom.modal && dom.modal.classList.contains('open')) {
     renderModal(currentModalId);
@@ -799,66 +771,8 @@ function drawFPSGraph() {
 }
 
 /* ------------------------------------------------------------
-   4. HUD: CURSOR, SCROLL, COORDINATES
+   4. HUD: SCROLL, COORDINATES
    ------------------------------------------------------------ */
-
-function initCursor() {
-  if (!finePointer || reducedMotion) return;
-
-  const ring = document.querySelector('.cursor-ring');
-  const dot = document.querySelector('.cursor-dot');
-  if (!ring || !dot) return;
-
-  let targetX = window.innerWidth / 2;
-  let targetY = window.innerHeight / 2;
-  let currentX = targetX;
-  let currentY = targetY;
-
-  document.documentElement.classList.add('cursor-ready');
-
-  window.addEventListener('mousemove', (event) => {
-    targetX = event.clientX;
-    targetY = event.clientY;
-    dot.style.transform = 'translate3d(' + targetX + 'px, ' + targetY + 'px, 0)';
-    document.documentElement.classList.add('cursor-active');
-  }, { passive: true });
-
-  document.documentElement.addEventListener('mouseleave', () => {
-    document.documentElement.classList.remove('cursor-active');
-  });
-
-  document.documentElement.addEventListener('mouseenter', () => {
-    document.documentElement.classList.add('cursor-active');
-  });
-
-  const hoverSelector = 'a, button, input, [data-tilt], .filter-btn';
-  document.addEventListener('pointerover', (event) => {
-    const target = event.target;
-    if (target instanceof Element && target.closest(hoverSelector)) {
-      document.documentElement.classList.add('cursor-hover');
-    }
-  });
-  document.addEventListener('pointerout', (event) => {
-    const target = event.target;
-    const related = event.relatedTarget;
-    if (
-      target instanceof Element &&
-      target.closest(hoverSelector) &&
-      !(related instanceof Element && related.closest(hoverSelector))
-    ) {
-      document.documentElement.classList.remove('cursor-hover');
-    }
-  });
-
-  function animateCursor() {
-    requestAnimationFrame(animateCursor);
-    currentX = lerp(currentX, targetX, 0.17);
-    currentY = lerp(currentY, targetY, 0.17);
-    ring.style.transform = 'translate3d(' + currentX + 'px, ' + currentY + 'px, 0)';
-  }
-
-  requestAnimationFrame(animateCursor);
-}
 
 function initScroll() {
   const update = () => {
@@ -1020,91 +934,394 @@ function initLab() {
 }
 
 /* ------------------------------------------------------------
-   6. PROJECT FILTERS & MODAL
+   6. PROJECT LIBRARY (projects.json)
    ------------------------------------------------------------ */
 
-function initFilters() {
-  const buttons = Array.from(document.querySelectorAll('.filter-btn'));
-  const cards = Array.from(document.querySelectorAll('.bento-grid .card'));
-  const resultsCount = document.getElementById('resultsCount');
+const PROJECTS_URL = 'projects.json';
 
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      buttons.forEach((item) => item.classList.remove('active'));
-      button.classList.add('active');
+const projectLibrary = {
+  categories: [],
+  projects: [],
+  byId: new Map()
+};
 
-      const category = button.dataset.filter;
-      let visible = 0;
+function escapeHTML(value) {
+  return String(value == null ? '' : value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
-      cards.forEach((card) => {
-        const show = category === 'all' || card.dataset.category === category;
-        card.style.display = show ? 'flex' : 'none';
-        if (show) visible++;
+function localized(value, lang) {
+  if (typeof value === 'string') return value;
+  if (!value || typeof value !== 'object') return '';
+  const preferred = value[lang];
+  if (typeof preferred === 'string') return preferred;
+  return typeof value.es === 'string' ? value.es : '';
+}
+
+function clipText(value, max) {
+  const text = String(value || '').trim();
+  if (text.length <= max) return text;
+  return text.slice(0, max - 1).trimEnd() + '…';
+}
+
+function categoryLabel(id, lang) {
+  const category = projectLibrary.categories.find((item) => item.id === id);
+  if (!category) return id;
+  return localized(category.label, lang) || id;
+}
+
+function safeURL(url) {
+  const value = String(url || '').trim();
+  if (!value) return '';
+  if (/^(?:https?:|mailto:)/i.test(value)) return value;
+  if (value.startsWith('#') || value.startsWith('/') || value.startsWith('./') || value.startsWith('../')) return value;
+  return '';
+}
+
+function normalizeCategories(categories) {
+  const seen = new Set();
+
+  return (Array.isArray(categories) ? categories : [])
+    .filter((category) => category && typeof category.id === 'string' && category.id.trim())
+    .filter((category) => {
+      const id = category.id.trim();
+      if (seen.has(id)) return false;
+      seen.add(id);
+      return true;
+    })
+    .map((category) => ({
+      id: category.id.trim(),
+      label: category.label && typeof category.label === 'object'
+        ? category.label
+        : { es: category.id, en: category.id }
+    }));
+}
+
+function normalizeProjects(projects) {
+  const seen = new Set();
+
+  return (Array.isArray(projects) ? projects : [])
+    .filter((project) => project && typeof project.id === 'string' && /^[a-z0-9_-]+$/i.test(project.id))
+    .filter((project) => typeof project.category === 'string' && project.category.trim())
+    .filter((project) => {
+      if (seen.has(project.id)) return false;
+      seen.add(project.id);
+      return true;
+    })
+    .map((project) => ({
+      ...project,
+      category: project.category.trim(),
+      specs: Array.isArray(project.specs) ? project.specs : [],
+      details: project.details && typeof project.details === 'object' ? project.details : {}
+    }));
+}
+
+async function loadProjectLibrary() {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 5000);
+
+  try {
+    const response = await fetch(PROJECTS_URL, { cache: 'no-store', signal: controller.signal });
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+
+    const data = await response.json();
+    const categories = normalizeCategories(data.categories);
+    const projects = normalizeProjects(data.projects);
+    const known = new Set(categories.map((category) => category.id));
+
+    projects.forEach((project) => {
+      if (known.has(project.category)) return;
+      known.add(project.category);
+      categories.push({
+        id: project.category,
+        label: { es: project.category, en: project.category }
       });
-
-      if (resultsCount) resultsCount.textContent = String(visible).padStart(2, '0');
-
-      if (window.ScrollTrigger) {
-        window.ScrollTrigger.refresh();
-      }
     });
+
+    projectLibrary.categories = categories;
+    projectLibrary.projects = projects;
+    projectLibrary.byId = new Map(projects.map((project) => [project.id, project]));
+    return true;
+  } catch (error) {
+    projectLibrary.categories = [];
+    projectLibrary.projects = [];
+    projectLibrary.byId = new Map();
+    console.warn('[DEV//SIM] No se pudo cargar projects.json:', error);
+    return false;
+  } finally {
+    window.clearTimeout(timeout);
+  }
+}
+
+/* ------------------------------------------------------------
+   6B. PROJECT FILTERS
+   ------------------------------------------------------------ */
+
+function updateFilterLabels() {
+  document.querySelectorAll('.filter-btn').forEach((button) => {
+    const id = button.dataset.filter;
+    button.textContent = id === 'all' ? t('filter.all') : categoryLabel(id, state.lang);
   });
 }
 
-const projectDetails = {
-  es: {
-    sim1: {
-      title: 'Simulador Dinámico de Fluidos y Estructuras',
-      tech: 'Unreal Engine 5 • C++ • Chaos Physics • OpenXR',
-      challenge: 'Simular fracturas en tiempo real y flujo de fluidos manteniendo 90 FPS estables en visores VR standalone.',
-      solution: 'Implementación de pre-fractura jerárquica mediante Chaos Geometry Collections, LODs dinámicos basados en distancia al jugador y cálculo asíncrono de colisiones en hilos secundarios.',
-      metrics: 'Reducción del 42% en tiempo de frame de CPU y latencia motion-to-photon inferior a 18ms.'
-    },
-    game1: {
-      title: 'Protocolo Aegis: Tactical Shooter',
-      tech: 'Unity • C# • NavMesh • Behaviour Trees',
-      challenge: 'Crear escuadrones enemigos capaces de flanquear y coordinar fuego de supresión sin depender de rutas pre-programadas.',
-      solution: 'Sistema de evaluación táctica de puntos de cobertura mediante Raycasting espacial y árboles de comportamiento modulares.',
-      metrics: 'Soporte para 24 agentes simultáneos con un costo menor a 1.5ms por frame.'
-    },
-    tech1: {
-      title: 'Simulación de Multitudes (100k Entidades)',
-      tech: 'HLSL • Compute Shaders • GPU Instancing',
-      challenge: 'Renderizar y simular el comportamiento colectivo (Boids) de 100,000 entidades sin saturar el bus CPU-GPU.',
-      solution: 'Almacenamiento de posiciones y velocidades en ComputeBuffers y ejecución paralela de reglas de cohesión, alineación y separación directamente en la GPU.',
-      metrics: '120 FPS constantes en resolución 1440p con 100,000 instancias activas.'
-    }
-  },
-  en: {
-    sim1: {
-      title: 'Dynamic Fluid & Structural Simulator',
-      tech: 'Unreal Engine 5 • C++ • Chaos Physics • OpenXR',
-      challenge: 'Simulate real-time fractures and fluid flow while maintaining a stable 90 FPS on standalone VR headsets.',
-      solution: 'Hierarchical pre-fracturing with Chaos Geometry Collections, dynamic distance-based LODs and asynchronous collision computation on worker threads.',
-      metrics: '42% reduction in CPU frame time and motion-to-photon latency below 18ms.'
-    },
-    game1: {
-      title: 'Aegis Protocol: Tactical Shooter',
-      tech: 'Unity • C# • NavMesh • Behaviour Trees',
-      challenge: 'Create enemy squads capable of flanking and coordinating suppressive fire without relying on pre-scripted routes.',
-      solution: 'Tactical evaluation of cover points using spatial raycasting and modular behaviour trees.',
-      metrics: 'Support for 24 simultaneous agents at a cost below 1.5ms per frame.'
-    },
-    tech1: {
-      title: 'Crowd Simulation (100k Entities)',
-      tech: 'HLSL • Compute Shaders • GPU Instancing',
-      challenge: 'Render and simulate the collective Boids behaviour of 100,000 entities without saturating the CPU-GPU bus.',
-      solution: 'Positions and velocities stored in ComputeBuffers with parallel execution of cohesion, alignment and separation rules directly on the GPU.',
-      metrics: 'Constant 120 FPS at 1440p with 100,000 active instances.'
-    }
+function renderFilters() {
+  const container = document.querySelector('.filters');
+  if (!container) return;
+
+  const ids = ['all', ...projectLibrary.categories.map((category) => category.id)];
+
+  const buttons = ids.map((id) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'filter-btn' + (id === state.filter ? ' active' : '');
+    button.dataset.filter = id;
+    button.setAttribute('aria-pressed', String(id === state.filter));
+    button.textContent = id === 'all' ? t('filter.all') : categoryLabel(id, state.lang);
+    return button;
+  });
+
+  container.replaceChildren(...buttons);
+}
+
+function updateResultsCount(visible) {
+  const resultsCount = document.getElementById('resultsCount');
+  if (resultsCount) resultsCount.textContent = String(visible).padStart(2, '0');
+}
+
+function updateProjectTotal() {
+  const resultsTotal = document.getElementById('resultsTotal');
+  if (resultsTotal) resultsTotal.textContent = String(projectLibrary.projects.length).padStart(2, '0');
+}
+
+function applyProjectFilter(category, options) {
+  const next = category || 'all';
+  const known = next === 'all' || projectLibrary.categories.some((item) => item.id === next);
+  state.filter = known ? next : 'all';
+
+  document.querySelectorAll('.filter-btn').forEach((button) => {
+    const active = button.dataset.filter === state.filter;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+
+  let visible = 0;
+
+  document.querySelectorAll('.bento-grid .card').forEach((card) => {
+    const show = state.filter === 'all' || card.dataset.category === state.filter;
+    card.style.display = show ? 'flex' : 'none';
+    if (show) visible++;
+  });
+
+  updateResultsCount(visible);
+
+  if ((!options || options.refresh !== false) && window.ScrollTrigger) {
+    window.ScrollTrigger.refresh();
   }
-};
+}
+
+function initFilters() {
+  const container = document.querySelector('.filters');
+  if (!container) return;
+
+  container.addEventListener('click', (event) => {
+    const button = event.target.closest('.filter-btn');
+    if (!button || !container.contains(button)) return;
+    applyProjectFilter(button.dataset.filter);
+  });
+}
+
+/* ------------------------------------------------------------
+   6C. PROJECT CARDS
+   ------------------------------------------------------------ */
+
+function createGenericArtwork(project) {
+  const uid = 'gen-' + project.id;
+  const accent = project.category === 'videojuegos'
+    ? '#ff5c7a'
+    : project.category === 'shaders-tech' ? '#a78bfa' : '#00f0ff';
+  const secondary = project.category === 'videojuegos' ? '#00f0ff' : '#7000ff';
+  const code = escapeHTML(project.mediaCode || 'PROJECT');
+  const category = escapeHTML(categoryLabel(project.category, state.lang).toUpperCase());
+  const title = escapeHTML(clipText(localized(project.title, state.lang), 42));
+
+  return [
+    '<svg class="card-art" viewBox="0 0 800 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">',
+    '  <defs>',
+    '    <linearGradient id="' + uid + '-bg" x1="0" y1="0" x2="1" y2="1">',
+    '      <stop offset="0" stop-color="#050b14"/><stop offset=".55" stop-color="#0a1020"/><stop offset="1" stop-color="#09061a"/>',
+    '    </linearGradient>',
+    '    <radialGradient id="' + uid + '-glow" cx="50%" cy="50%" r="50%">',
+    '      <stop stop-color="' + accent + '" stop-opacity=".28"/><stop offset="1" stop-color="' + accent + '" stop-opacity="0"/>',
+    '    </radialGradient>',
+    '    <linearGradient id="' + uid + '-line" x1="0" y1="0" x2="1" y2="0">',
+    '      <stop stop-color="' + accent + '" stop-opacity=".08"/><stop offset=".55" stop-color="' + accent + '" stop-opacity=".9"/><stop offset="1" stop-color="' + secondary + '" stop-opacity=".15"/>',
+    '    </linearGradient>',
+    '    <pattern id="' + uid + '-grid" width="38" height="38" patternUnits="userSpaceOnUse">',
+    '      <path d="M38 0H0v38" fill="none" stroke="' + accent + '" stroke-opacity=".09" stroke-width="1"/>',
+    '    </pattern>',
+    '  </defs>',
+    '  <rect width="800" height="480" fill="url(#' + uid + '-bg)"/>',
+    '  <rect width="800" height="480" fill="url(#' + uid + '-grid)"/>',
+    '  <circle cx="620" cy="140" r="240" fill="url(#' + uid + '-glow)"/>',
+    '  <g fill="none" stroke="' + accent + '" stroke-width="1" opacity=".34">',
+    '    <circle cx="620" cy="140" r="72"/><circle cx="620" cy="140" r="116" stroke-dasharray="3 10"/><circle cx="620" cy="140" r="160" stroke-dasharray="1 14"/>',
+    '    <path d="M620 -20v320M460 140h320" opacity=".35"/>',
+    '  </g>',
+    '  <g fill="none" stroke="url(#' + uid + '-line)" stroke-width="1.4">',
+    '    <path d="M-30 326C110 290 190 356 320 330s210-64 330-30 120 52 210 26"/>',
+    '    <path d="M-30 348C110 312 194 376 326 350s212-60 328-26 118 46 206 22" opacity=".55"/>',
+    '  </g>',
+    '  <g fill="' + accent + '"><circle cx="620" cy="140" r="3"/><circle cx="510" cy="238" r="2.5"/><circle cx="700" cy="262" r="2"/></g>',
+    '  <g font-family="\'JetBrains Mono\',monospace" fill="' + accent + '" opacity=".72">',
+    '    <text x="32" y="44" font-size="11" data-project-art-code>' + code + ' // ' + category + '</text>',
+    '    <text x="32" y="64" fill="#8b9bb0" opacity=".72" font-size="11">ARCHIVE // REAL-TIME BUILD</text>',
+    '    <text x="32" y="392" font-size="22" fill="#dffcff" data-project-art-title>' + title + '</text>',
+    '    <text x="32" y="414" fill="#8b9bb0" opacity=".7" font-size="11">' + category + '</text>',
+    '  </g>',
+    '</svg>'
+  ].join('\n');
+}
+
+function createProjectArt(project) {
+  const visual = typeof project.visual === 'string' ? project.visual.replace(/[^a-z0-9-]/gi, '') : '';
+  const template = visual ? document.getElementById('art-' + visual) : null;
+  const wrapper = document.createElement('div');
+
+  if (template) {
+    const prefix = 'art-' + project.id + '-';
+    wrapper.innerHTML = template.innerHTML
+      .replace(/\bid="([a-z0-9]+)-/gi, 'id="' + prefix + '$1-')
+      .replace(/url\(#([a-z0-9]+)-/gi, 'url(#' + prefix + '$1-');
+    if (wrapper.firstElementChild) return wrapper.firstElementChild;
+  }
+
+  wrapper.innerHTML = createGenericArtwork(project);
+  return wrapper.firstElementChild;
+}
+
+function createProjectCard(project) {
+  const card = document.createElement('article');
+  const layout = project.layout === 'featured' ? 'featured' : project.layout === 'wide' ? 'wide' : 'standard';
+
+  card.className = 'card' + (layout === 'featured' ? ' featured' : layout === 'wide' ? ' card--wide' : '');
+  card.dataset.category = project.category;
+  card.dataset.projectId = project.id;
+  card.dataset.tilt = '';
+  card.dataset.tiltMax = layout === 'wide' ? '5' : '6';
+  card.dataset.tiltSpeed = '800';
+  card.dataset.tiltGlare = '';
+  card.dataset.tiltMaxGlare = layout === 'wide' ? '0.14' : '0.18';
+
+  const link = project.link && typeof project.link === 'object' ? project.link : {};
+  const url = safeURL(link.url);
+  const linkMarkup = url
+    ? '<a href="' + escapeHTML(url) + '" class="link-code" target="_blank" rel="noopener noreferrer"><span data-project-link>' + escapeHTML(localized(link.label, state.lang)) + '</span> ↗</a>'
+    : '';
+
+  card.innerHTML = [
+    '<div class="card-media">',
+    '  <div class="media-overlay"></div>',
+    '  <div class="media-top">',
+    '    <span class="tag" data-project-tag>' + escapeHTML(localized(project.tags, state.lang)) + '</span>',
+    '    <span class="media-code">' + escapeHTML(project.mediaCode || 'PROJECT') + '</span>',
+    '  </div>',
+    '  <div class="media-bottom">',
+    '    <span class="play-hint"><span class="play-glyph">▶</span> <span data-project-preview>' + escapeHTML(localized(project.preview, state.lang)) + '</span></span>',
+    '    <span class="media-engine">' + escapeHTML(project.engine || '') + '</span>',
+    '  </div>',
+    '  <span class="scan-beam" aria-hidden="true"></span>',
+    '</div>',
+    '<div class="card-body">',
+    '  <div class="meta"><span class="meta-dot"></span><span data-project-meta>' + escapeHTML(localized(project.tech, state.lang)) + '</span></div>',
+    '  <h3 data-project-title>' + escapeHTML(localized(project.title, state.lang)) + '</h3>',
+    '  <p data-project-desc>' + escapeHTML(localized(project.description, state.lang)) + '</p>',
+    '  <div class="card-specs">' + project.specs.map((spec) => '<span data-project-spec>' + escapeHTML(localized(spec, state.lang)) + '</span>').join('') + '</div>',
+    '  <div class="card-footer">',
+    '    <button class="btn-detail" type="button" onclick="openModal(\'' + project.id + '\')"><span data-project-cta>' + escapeHTML(t('card.viewSheet', state.lang)) + '</span> <span class="btn-detail-arrow" aria-hidden="true">→</span></button>',
+    '    ' + linkMarkup,
+    '  </div>',
+    '</div>'
+  ].join('\n');
+
+  const media = card.querySelector('.card-media');
+  const art = createProjectArt(project);
+  if (media && art) media.insertBefore(art, media.firstChild);
+
+  return card;
+}
+
+function renderProjects() {
+  const grid = document.getElementById('projects-grid');
+  const empty = document.getElementById('projectsEmpty');
+  if (!grid) return;
+
+  grid.replaceChildren(...projectLibrary.projects.map(createProjectCard));
+  if (empty) empty.hidden = projectLibrary.projects.length > 0;
+
+  updateProjectTotal();
+  applyProjectFilter(state.filter, { refresh: false });
+}
+
+function updateProjectCardsLanguage() {
+  const lang = state.lang;
+
+  document.querySelectorAll('.card[data-project-id]').forEach((card) => {
+    const project = projectLibrary.byId.get(card.dataset.projectId);
+    if (!project) return;
+
+    const setText = (selector, value) => {
+      const element = card.querySelector(selector);
+      if (element) element.textContent = value;
+    };
+
+    setText('[data-project-tag]', localized(project.tags, lang));
+    setText('[data-project-preview]', localized(project.preview, lang));
+    setText('[data-project-meta]', localized(project.tech, lang));
+    setText('[data-project-title]', localized(project.title, lang));
+    setText('[data-project-desc]', localized(project.description, lang));
+    setText('[data-project-cta]', t('card.viewSheet', lang));
+    setText('[data-project-link]', localized(project.link && project.link.label, lang));
+
+    card.querySelectorAll('[data-project-spec]').forEach((element, index) => {
+      if (project.specs[index] != null) element.textContent = localized(project.specs[index], lang);
+    });
+
+    const artTitle = card.querySelector('[data-project-art-title]');
+    if (artTitle) artTitle.textContent = clipText(localized(project.title, lang), 42);
+
+    const artCode = card.querySelector('[data-project-art-code]');
+    if (artCode) {
+      artCode.textContent = (project.mediaCode || 'PROJECT') + ' // ' + categoryLabel(project.category, lang).toUpperCase();
+    }
+  });
+
+  updateFilterLabels();
+}
+
+/* ------------------------------------------------------------
+   6D. PROJECT MODAL
+   ------------------------------------------------------------ */
 
 let lastFocusedElement = null;
 
 function getProjectDetails(id) {
-  const language = projectDetails[state.lang] || projectDetails.es;
-  return language[id] || projectDetails.es[id];
+  const project = projectLibrary.byId.get(id);
+  if (!project) return null;
+
+  const lang = state.lang === 'en' ? 'en' : 'es';
+  const details = project.details[lang] || project.details.es || project.details.en || {};
+
+  return {
+    title: localized(project.title, lang),
+    tech: localized(project.tech, lang),
+    challenge: localized(details.challenge, lang),
+    solution: localized(details.solution, lang),
+    metrics: localized(details.metrics, lang)
+  };
 }
 
 function renderModal(id) {
@@ -1112,11 +1329,11 @@ function renderModal(id) {
   if (!data || !dom.modalBody) return false;
 
   dom.modalBody.innerHTML =
-    '<span class="meta"><span class="meta-dot"></span>' + data.tech + '</span>' +
-    '<h3 id="modalTitle">' + data.title + '</h3>' +
-    '<div class="modal-field"><strong>' + t('modal.challenge') + '</strong><p>' + data.challenge + '</p></div>' +
-    '<div class="modal-field"><strong>' + t('modal.solution') + '</strong><p>' + data.solution + '</p></div>' +
-    '<div class="modal-result"><span>' + t('modal.result') + '</span>' + data.metrics + '</div>';
+    '<span class="meta"><span class="meta-dot"></span>' + escapeHTML(data.tech) + '</span>' +
+    '<h3 id="modalTitle">' + escapeHTML(data.title) + '</h3>' +
+    '<div class="modal-field"><strong>' + escapeHTML(t('modal.challenge')) + '</strong><p>' + escapeHTML(data.challenge) + '</p></div>' +
+    '<div class="modal-field"><strong>' + escapeHTML(t('modal.solution')) + '</strong><p>' + escapeHTML(data.solution) + '</p></div>' +
+    '<div class="modal-result"><span>' + escapeHTML(t('modal.result')) + '</span>' + escapeHTML(data.metrics) + '</div>';
 
   return true;
 }
@@ -1528,14 +1745,16 @@ function initAnimations() {
    BOOT
    ------------------------------------------------------------ */
 
-function init() {
+async function init() {
   window.__revealReady = true;
 
   try {
+    await loadProjectLibrary();
     initI18n();
+    renderFilters();
+    renderProjects();
     initPointer();
     initScroll();
-    initCursor();
     initThree();
     initInspector();
     initLab();

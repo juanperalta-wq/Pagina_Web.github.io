@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portafolio de desarrollo de videojuegos, simulaciones en tiempo real, gráficos 3D y experiencias VR." />
+  <meta name="description" content="Portafolio de desarrollo de videojuegos con Unity y Unreal Engine, simulaciones en tiempo real, C#, gráficos 3D y experiencias VR." />
   <meta name="theme-color" content="#05070c" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305070c'/%3E%3Cpath d='M16 3 29 10.5v13L16 29 3 23.5v-13L16 3Z' fill='none' stroke='%2300f0ff' stroke-width='1.6'/%3E%3C/svg%3E" />
   <title>DEV//SIM_01 — Ingeniero de Videojuegos y Simulaciones</title>
@@ -29,10 +29,6 @@
   <div class="scene-vignette" aria-hidden="true"></div>
   <div class="scene-scanlines" aria-hidden="true"></div>
   <div class="load-bar" aria-hidden="true"><span></span></div>
-
-  <!-- Cursor HUD -->
-  <div class="cursor-ring" aria-hidden="true"></div>
-  <div class="cursor-dot" aria-hidden="true"></div>
 
   <!-- Navegación HUD -->
   <header class="navbar">
@@ -101,7 +97,7 @@
 
           <p class="subtitle" data-i18n="hero.subtitle">
             Desarrollo de mecánicas de gameplay, sistemas físicos en tiempo real, entornos 3D
-            interactivos y experiencias VR/AR optimizadas.
+            interactivos y experiencias VR/AR optimizadas con Unity, Unreal Engine y C#.
           </p>
 
           <div class="hero-actions">
@@ -118,11 +114,11 @@
           <div class="hud-stats">
             <div>
               <span>ENGINE</span>
-              <strong>Unreal 5 / Unity</strong>
+              <strong>Unity / Unreal 5</strong>
             </div>
             <div>
               <span>LANGUAGES</span>
-              <strong>C++ / C# / HLSL</strong>
+              <strong>C#</strong>
             </div>
             <div>
               <span>TARGET</span>
@@ -217,20 +213,20 @@
     <!-- Cinta de especialidades -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>UNREAL ENGINE 5</span><i>✦</i>
-        <span>UNITY 6</span><i>✦</i>
-        <span>REAL-TIME VFX</span><i>✦</i>
-        <span>HLSL / GLSL</span><i>✦</i>
-        <span>VR / XR</span><i>✦</i>
-        <span>PROCEDURAL WORLDS</span><i>✦</i>
-        <span>PHYSICS SIMULATION</span><i>✦</i>
-        <span>UNREAL ENGINE 5</span><i>✦</i>
-        <span>UNITY 6</span><i>✦</i>
-        <span>REAL-TIME VFX</span><i>✦</i>
-        <span>HLSL / GLSL</span><i>✦</i>
-        <span>VR / XR</span><i>✦</i>
-        <span>PROCEDURAL WORLDS</span><i>✦</i>
-        <span>PHYSICS SIMULATION</span><i>✦</i>
+        <span>UNITY</span><i>✦</i>
+        <span>UNREAL ENGINE</span><i>✦</i>
+        <span>C#</span><i>✦</i>
+        <span>GAME DEVELOPMENT</span><i>✦</i>
+        <span>GAMEPLAY SYSTEMS</span><i>✦</i>
+        <span>REAL-TIME SIMULATION</span><i>✦</i>
+        <span>INTERACTIVE 3D</span><i>✦</i>
+        <span>UNITY</span><i>✦</i>
+        <span>UNREAL ENGINE</span><i>✦</i>
+        <span>C#</span><i>✦</i>
+        <span>GAME DEVELOPMENT</span><i>✦</i>
+        <span>GAMEPLAY SYSTEMS</span><i>✦</i>
+        <span>REAL-TIME SIMULATION</span><i>✦</i>
+        <span>INTERACTIVE 3D</span><i>✦</i>
       </div>
     </div>
 
@@ -245,252 +241,175 @@
       </div>
 
       <div class="section-toolbar" data-reveal>
-        <div class="filters" role="group" aria-label="Filtrar proyectos por categoría" data-i18n-aria="a11y.filters">
-          <button class="filter-btn active" data-filter="all" data-i18n="filter.all">Todos</button>
-          <button class="filter-btn" data-filter="game" data-i18n="filter.game">Videojuegos</button>
-          <button class="filter-btn" data-filter="sim" data-i18n="filter.sim">Simulaciones</button>
-          <button class="filter-btn" data-filter="tech" data-i18n="filter.tech">Shaders / Tech</button>
-        </div>
-        <span class="results-count"><b id="resultsCount">03</b> / 03 <span data-i18n="projects.entries">ENTRADAS</span></span>
+        <div class="filters" role="group" aria-label="Filtrar proyectos por categoría" data-i18n-aria="a11y.filters"></div>
+        <span class="results-count"><b id="resultsCount">00</b> / <b id="resultsTotal">00</b> <span data-i18n="projects.entries">ENTRADAS</span></span>
       </div>
 
-      <div class="bento-grid" id="projects-grid">
-        <!-- Proyecto 1 -->
-        <article class="card featured" data-category="sim" data-tilt data-tilt-max="6" data-tilt-speed="800" data-tilt-glare data-tilt-max-glare="0.18">
-          <div class="card-media">
-            <svg class="card-art" viewBox="0 0 800 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-              <defs>
-                <linearGradient id="fl-bg" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#04131c"/><stop offset=".55" stop-color="#071d27"/><stop offset="1" stop-color="#0b0820"/>
-                </linearGradient>
-                <linearGradient id="fl-wave" x1="0" y1="0" x2="1" y2="0">
-                  <stop stop-color="#00f0ff" stop-opacity=".05"/>
-                  <stop offset=".45" stop-color="#56f6ff" stop-opacity=".9"/>
-                  <stop offset="1" stop-color="#7000ff" stop-opacity=".12"/>
-                </linearGradient>
-                <radialGradient id="fl-cyan" cx="50%" cy="50%" r="50%">
-                  <stop stop-color="#00f0ff" stop-opacity=".42"/><stop offset="1" stop-color="#00f0ff" stop-opacity="0"/>
-                </radialGradient>
-                <radialGradient id="fl-violet" cx="50%" cy="50%" r="50%">
-                  <stop stop-color="#7000ff" stop-opacity=".55"/><stop offset="1" stop-color="#7000ff" stop-opacity="0"/>
-                </radialGradient>
-                <pattern id="fl-grid" width="42" height="42" patternUnits="userSpaceOnUse">
-                  <path d="M42 0H0v42" fill="none" stroke="#7df9ff" stroke-opacity=".08" stroke-width="1"/>
-                </pattern>
-              </defs>
-              <rect width="800" height="480" fill="url(#fl-bg)"/>
-              <rect width="800" height="480" fill="url(#fl-grid)"/>
-              <circle cx="618" cy="122" r="220" fill="url(#fl-violet)"/>
-              <circle cx="168" cy="338" r="200" fill="url(#fl-cyan)"/>
-              <g fill="none" stroke="url(#fl-wave)" stroke-width="1.4">
-                <path d="M-40 268C90 232 155 300 262 278s160-76 274-42 148 88 304 46"/>
-                <path d="M-40 292C90 256 158 324 264 302s164-74 276-40 146 86 300 44" opacity=".7"/>
-                <path d="M-40 316C90 282 160 348 268 326s162-72 272-38 146 82 300 42" opacity=".48"/>
-                <path d="M-40 342C92 310 162 372 272 350s160-68 268-36 146 78 300 40" opacity=".32"/>
-                <path d="M-40 370C94 338 164 398 276 376s158-64 264-34 144 74 300 38" opacity=".2"/>
-              </g>
-              <path d="M0 386C130 352 220 410 340 384s220-52 320-24 120 42 220 34v86H0Z" fill="#00f0ff" opacity=".05"/>
-              <g fill="none" stroke="#67f6ff" stroke-width="1" opacity=".62">
-                <path d="M268 380V282l28-15v113M268 282l28-15 30 15v113l-30 15Z M296 267v113"/>
-                <path d="M396 400V302l36-19v116M396 302l36-19 36 19v116l-36 19Z M432 283v116" opacity=".8"/>
-                <path d="M536 414v-66l22-12v78M536 348l22-12 22 12v78l-22 12Z M558 336v78" opacity=".55"/>
-              </g>
-              <g stroke="#a78bfa" stroke-width="1" fill="none" opacity=".5">
-                <path d="M268 380l106-30M326 254l106 48M396 400l96-52M514 402l44-54"/>
-              </g>
-              <g fill="#7df9ff">
-                <circle cx="296" cy="267" r="2.5"/><circle cx="432" cy="283" r="2.5"/><circle cx="558" cy="336" r="2"/>
-              </g>
-              <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#7df9ff" opacity=".7">
-                <text x="32" y="44">CHAOS // FLUID SOLVER</text>
-                <text x="32" y="60" fill="#8b9bb0" opacity=".7">PRESSURE 1.42 MPa</text>
-                <text x="662" y="440" text-anchor="end" fill="#a78bfa">VR-XR / 90Hz</text>
-              </g>
-            </svg>
-            <div class="media-overlay"></div>
-            <div class="media-top">
-              <span class="tag" data-i18n="card1.tag">SIMULACIÓN FÍSICA // VR</span>
-              <span class="media-code">SYS.01</span>
-            </div>
-            <div class="media-bottom">
-              <span class="play-hint"><span class="play-glyph">▶</span> <span data-i18n="card1.preview">VISTA PREVIA / REEL</span></span>
-              <span class="media-engine">UE5</span>
-            </div>
-            <span class="scan-beam" aria-hidden="true"></span>
-          </div>
-          <div class="card-body">
-            <div class="meta"><span class="meta-dot"></span>Unreal Engine 5 • C++ • Chaos Physics</div>
-            <h3 data-i18n="card1.title">Simulador Dinámico de Fluidos y Estructuras</h3>
-            <p data-i18n="card1.desc">Entorno de entrenamiento industrial en realidad virtual con destrucción procedural en tiempo real y telemetría de estrés estructural.</p>
-            <div class="card-specs">
-              <span>REALTIME</span><span>VR</span><span>CHAOS</span>
-            </div>
-            <div class="card-footer">
-              <button class="btn-detail" onclick="openModal('sim1')"><span data-i18n="card.viewSheet">Ver Ficha Técnica</span> <span class="btn-detail-arrow" aria-hidden="true">→</span></button>
-              <a href="#" class="link-code" onclick="return false">GitHub ↗</a>
-            </div>
-          </div>
-        </article>
+      <div class="bento-grid" id="projects-grid"></div>
 
-        <!-- Proyecto 2 -->
-        <article class="card" data-category="game" data-tilt data-tilt-max="6" data-tilt-speed="800" data-tilt-glare data-tilt-max-glare="0.18">
-          <div class="card-media">
-            <svg class="card-art" viewBox="0 0 800 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-              <defs>
-                <linearGradient id="tc-bg" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#050a17"/><stop offset=".6" stop-color="#081123"/><stop offset="1" stop-color="#0c0a1e"/>
-                </linearGradient>
-                <radialGradient id="tc-hub" cx="50%" cy="50%" r="50%">
-                  <stop stop-color="#00f0ff" stop-opacity=".3"/><stop offset="1" stop-color="#00f0ff" stop-opacity="0"/>
-                </radialGradient>
-                <linearGradient id="tc-sweep" x1="0" y1="0" x2="1" y2="1">
-                  <stop stop-color="#00f0ff" stop-opacity=".28"/><stop offset="1" stop-color="#00f0ff" stop-opacity="0"/>
-                </linearGradient>
-                <pattern id="tc-grid" width="34" height="34" patternUnits="userSpaceOnUse">
-                  <path d="M34 0H0v34" fill="none" stroke="#6fb7ff" stroke-opacity=".09" stroke-width="1"/>
-                </pattern>
-              </defs>
-              <rect width="800" height="480" fill="url(#tc-bg)"/>
-              <rect width="800" height="480" fill="url(#tc-grid)"/>
-              <g fill="#0b1830" stroke="#2b6b9e" stroke-opacity=".5" stroke-width="1">
-                <path d="M80 110l150-28 30 108-152 30Z"/>
-                <path d="M520 66l142 34-32 122-140-34Z" opacity=".7"/>
-                <path d="M120 320l118-22 26 96-122 24Z" opacity=".8"/>
-                <path d="M410 330l96-60 92 74-96 60Z" opacity=".65"/>
-                <path d="M610 300l84 46-50 74-86-46Z" opacity=".55"/>
-              </g>
-              <g fill="none" stroke="#00f0ff" stroke-width="1.2" stroke-dasharray="7 7" opacity=".65">
-                <path d="M170 210C250 160 330 182 392 238s126 48 190 10"/>
-                <path d="M180 236C270 210 330 236 398 280s124 34 174 6" opacity=".45"/>
-              </g>
-              <path d="M646 248l20 6-14 15" fill="none" stroke="#00f0ff" stroke-width="1.4"/>
-              <circle cx="602" cy="238" r="168" fill="url(#tc-hub)"/>
-              <g fill="none" stroke="#00f0ff" opacity=".45">
-                <circle cx="602" cy="238" r="66"/>
-                <circle cx="602" cy="238" r="112" stroke-dasharray="2 8"/>
-                <circle cx="602" cy="238" r="158" stroke-dasharray="1 14"/>
-                <path d="M602 70v336M434 238h336" opacity=".25"/>
-              </g>
-              <path d="M602 238 602 80a158 158 0 0 1 137 79Z" fill="url(#tc-sweep)"/>
-              <g fill="#ff5c7a">
-                <circle cx="470" cy="185" r="5"/><circle cx="512" cy="306" r="4.5"/><circle cx="688" cy="160" r="4"/>
-              </g>
-              <g fill="none" stroke="#ff5c7a" stroke-width="1" opacity=".7">
-                <path d="M456 171h28v28h-28zM500 292h24v24h-24zM676 148h24v24h-24z"/>
-              </g>
-              <g fill="#7df9ff">
-                <circle cx="196" cy="214" r="3"/><circle cx="358" cy="252" r="3"/><circle cx="612" cy="352" r="3"/>
-              </g>
-              <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#7df9ff" opacity=".7">
-                <text x="32" y="44">TACTICAL AI // BEHAVIOUR TREE</text>
-                <text x="32" y="60" fill="#8b9bb0" opacity=".7">SQUAD LINK — STABLE</text>
-                <text x="740" y="444" text-anchor="end" fill="#ff8fa3">HOSTILES: 03</text>
-              </g>
-            </svg>
-            <div class="media-overlay"></div>
-            <div class="media-top">
-              <span class="tag" data-i18n="card2.tag">VIDEOJUEGO // ACTION</span>
-              <span class="media-code">GAME.02</span>
-            </div>
-            <div class="media-bottom">
-              <span class="play-hint"><span class="play-glyph">▶</span> <span data-i18n="card2.preview">DEMO JUGABLE</span></span>
-              <span class="media-engine">UNITY</span>
-            </div>
-            <span class="scan-beam" aria-hidden="true"></span>
-          </div>
-          <div class="card-body">
-            <div class="meta"><span class="meta-dot"></span><span data-i18n="card2.meta">Unity • C# • IA Behaviour Trees</span></div>
-            <h3 data-i18n="card2.title">Protocolo Aegis: Tactical Shooter</h3>
-            <p data-i18n="card2.desc">Sistema de combate táctico con IA enemiga adaptativa, cobertura dinámica y balística calculada por trayectoria.</p>
-            <div class="card-specs">
-              <span>GAMEPLAY</span><span>AI</span><span>NAVMESH</span>
-            </div>
-            <div class="card-footer">
-              <button class="btn-detail" onclick="openModal('game1')"><span data-i18n="card.viewSheet">Ver Ficha Técnica</span> <span class="btn-detail-arrow" aria-hidden="true">→</span></button>
-              <a href="#" class="link-code" onclick="return false" data-i18n="card2.webgl">Jugar WebGL ↗</a>
-            </div>
-          </div>
-        </article>
+      <p class="projects-empty" id="projectsEmpty" data-i18n="projects.empty" hidden>No hay proyectos en la biblioteca todavía. Añade entradas en projects.json.</p>
 
-        <!-- Proyecto 3 -->
-        <article class="card card--wide" data-category="tech" data-tilt data-tilt-max="5" data-tilt-speed="800" data-tilt-glare data-tilt-max-glare="0.14">
-          <div class="card-media">
-            <svg class="card-art" viewBox="0 0 800 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-              <defs>
-                <linearGradient id="sw-bg" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#080516"/><stop offset=".55" stop-color="#100a25"/><stop offset="1" stop-color="#06151d"/>
-                </linearGradient>
-                <radialGradient id="sw-glow" cx="50%" cy="50%" r="50%">
-                  <stop stop-color="#00f0ff" stop-opacity=".26"/>
-                  <stop offset=".45" stop-color="#7000ff" stop-opacity=".22"/>
-                  <stop offset="1" stop-color="#7000ff" stop-opacity="0"/>
-                </radialGradient>
-                <radialGradient id="sw-fade" cx="50%" cy="50%" r="50%">
-                  <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-                  <stop offset=".62" stop-color="#fff" stop-opacity=".55"/>
-                  <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-                </radialGradient>
-                <mask id="sw-mask"><rect width="800" height="480" fill="#000"/><circle cx="410" cy="240" r="240" fill="url(#sw-fade)"/></mask>
-                <pattern id="sw-dots" width="17" height="17" patternUnits="userSpaceOnUse">
-                  <circle cx="3" cy="4" r="1.4" fill="#6cf6ff" opacity=".75"/>
-                  <circle cx="12" cy="11" r="1" fill="#a78bfa" opacity=".65"/>
-                  <circle cx="15" cy="3" r=".7" fill="#00f0ff" opacity=".5"/>
-                </pattern>
-                <pattern id="sw-dots-lg" width="46" height="46" patternUnits="userSpaceOnUse">
-                  <circle cx="8" cy="14" r="2.4" fill="#00f0ff" opacity=".85"/>
-                  <circle cx="33" cy="31" r="2" fill="#9b6bff" opacity=".8"/>
-                </pattern>
-              </defs>
-              <rect width="800" height="480" fill="url(#sw-bg)"/>
-              <circle cx="410" cy="240" r="286" fill="url(#sw-glow)"/>
-              <g mask="url(#sw-mask)">
-                <circle cx="410" cy="240" r="240" fill="url(#sw-dots)"/>
-                <circle cx="410" cy="240" r="190" fill="url(#sw-dots-lg)" opacity=".55"/>
-              </g>
-              <g fill="none" stroke="#00f0ff" stroke-width="1" opacity=".35">
-                <path d="M180 300c46-98 144-146 240-120s150 96 128 174-114 116-202 94-158-66-166-148Z"/>
-                <path d="M228 286c38-72 116-108 192-90s122 76 104 138-92 92-162 74-124-52-134-122Z" stroke-dasharray="4 9" opacity=".7"/>
-                <path d="M278 272c30-46 86-70 144-56s88 62 70 104-74 68-124 52-88-44-90-100Z" opacity=".5"/>
-              </g>
-              <g stroke="#a78bfa" stroke-width="1" opacity=".5" fill="none">
-                <path d="M262 248l52-18M338 168l24 40M486 154l10 44M552 206l40-14M574 340l-30 24M396 396l-16-32M250 338l44 10"/>
-              </g>
-              <g fill="none" stroke="#7df9ff" stroke-width="1.4" opacity=".8">
-                <circle cx="410" cy="240" r="48"/>
-                <circle cx="410" cy="240" r="60" stroke-dasharray="2 7" opacity=".5"/>
-                <path d="M410 156v-22M410 324v24M326 240h-24M494 240h24"/>
-              </g>
-              <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#7df9ff" opacity=".7">
-                <text x="32" y="44">GPU COMPUTE // BOIDS FIELD</text>
-                <text x="32" y="60" fill="#8b9bb0" opacity=".7">AGENTS 100,000 — 120 Hz</text>
-                <text x="740" y="444" text-anchor="end" fill="#a78bfa">COMPUTE 4.8 ms</text>
-              </g>
-            </svg>
-            <div class="media-overlay"></div>
-            <div class="media-top">
-              <span class="tag" data-i18n="card3.tag">SHADER // GPU</span>
-              <span class="media-code">TECH.03</span>
-            </div>
-            <div class="media-bottom">
-              <span class="play-hint"><span class="play-glyph">▶</span> <span data-i18n="card3.preview">TECH BREAKDOWN</span></span>
-              <span class="media-engine">HLSL</span>
-            </div>
-            <span class="scan-beam" aria-hidden="true"></span>
-          </div>
-          <div class="card-body">
-            <div class="meta"><span class="meta-dot"></span>HLSL • Compute Shaders • Niagara</div>
-            <h3 data-i18n="card3.title">Simulación de Multitudes (100k Entidades)</h3>
-            <p data-i18n="card3.desc">Algoritmo Boids ejecutado íntegramente en GPU mediante Compute Shaders para simular enjambres masivos a 120 FPS.</p>
-            <div class="card-specs">
-              <span>COMPUTE</span><span>100K AGENTS</span><span>120 FPS</span>
-            </div>
-            <div class="card-footer">
-              <button class="btn-detail" onclick="openModal('tech1')"><span data-i18n="card.viewSheet">Ver Ficha Técnica</span> <span class="btn-detail-arrow" aria-hidden="true">→</span></button>
-              <a href="#" class="link-code" onclick="return false" data-i18n="card3.code">Código ↗</a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <!-- Portadas base. script.js las clona según el campo "visual" de projects.json. -->
+      <template id="art-fluid">
+        <svg class="card-art" viewBox="0 0 800 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="fl-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#04131c"/><stop offset=".55" stop-color="#071d27"/><stop offset="1" stop-color="#0b0820"/>
+            </linearGradient>
+            <linearGradient id="fl-wave" x1="0" y1="0" x2="1" y2="0">
+              <stop stop-color="#00f0ff" stop-opacity=".05"/>
+              <stop offset=".45" stop-color="#56f6ff" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#7000ff" stop-opacity=".12"/>
+            </linearGradient>
+            <radialGradient id="fl-cyan" cx="50%" cy="50%" r="50%">
+              <stop stop-color="#00f0ff" stop-opacity=".42"/><stop offset="1" stop-color="#00f0ff" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="fl-violet" cx="50%" cy="50%" r="50%">
+              <stop stop-color="#7000ff" stop-opacity=".55"/><stop offset="1" stop-color="#7000ff" stop-opacity="0"/>
+            </radialGradient>
+            <pattern id="fl-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+              <path d="M42 0H0v42" fill="none" stroke="#7df9ff" stroke-opacity=".08" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="800" height="480" fill="url(#fl-bg)"/>
+          <rect width="800" height="480" fill="url(#fl-grid)"/>
+          <circle cx="618" cy="122" r="220" fill="url(#fl-violet)"/>
+          <circle cx="168" cy="338" r="200" fill="url(#fl-cyan)"/>
+          <g fill="none" stroke="url(#fl-wave)" stroke-width="1.4">
+            <path d="M-40 268C90 232 155 300 262 278s160-76 274-42 148 88 304 46"/>
+            <path d="M-40 292C90 256 158 324 264 302s164-74 276-40 146 86 300 44" opacity=".7"/>
+            <path d="M-40 316C90 282 160 348 268 326s162-72 272-38 146 82 300 42" opacity=".48"/>
+            <path d="M-40 342C92 310 162 372 272 350s160-68 268-36 146 78 300 40" opacity=".32"/>
+            <path d="M-40 370C94 338 164 398 276 376s158-64 264-34 144 74 300 38" opacity=".2"/>
+          </g>
+          <path d="M0 386C130 352 220 410 340 384s220-52 320-24 120 42 220 34v86H0Z" fill="#00f0ff" opacity=".05"/>
+          <g fill="none" stroke="#67f6ff" stroke-width="1" opacity=".62">
+            <path d="M268 380V282l28-15v113M268 282l28-15 30 15v113l-30 15Z M296 267v113"/>
+            <path d="M396 400V302l36-19v116M396 302l36-19 36 19v116l-36 19Z M432 283v116" opacity=".8"/>
+            <path d="M536 414v-66l22-12v78M536 348l22-12 22 12v78l-22 12Z M558 336v78" opacity=".55"/>
+          </g>
+          <g stroke="#a78bfa" stroke-width="1" fill="none" opacity=".5">
+            <path d="M268 380l106-30M326 254l106 48M396 400l96-52M514 402l44-54"/>
+          </g>
+          <g fill="#7df9ff">
+            <circle cx="296" cy="267" r="2.5"/><circle cx="432" cy="283" r="2.5"/><circle cx="558" cy="336" r="2"/>
+          </g>
+          <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#7df9ff" opacity=".7">
+            <text x="32" y="44">CHAOS // FLUID SOLVER</text>
+            <text x="32" y="60" fill="#8b9bb0" opacity=".7">PRESSURE 1.42 MPa</text>
+            <text x="662" y="440" text-anchor="end" fill="#a78bfa">VR-XR / 90Hz</text>
+          </g>
+        </svg>
+      </template>
+
+      <template id="art-tactical">
+        <svg class="card-art" viewBox="0 0 800 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="tc-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#050a17"/><stop offset=".6" stop-color="#081123"/><stop offset="1" stop-color="#0c0a1e"/>
+            </linearGradient>
+            <radialGradient id="tc-hub" cx="50%" cy="50%" r="50%">
+              <stop stop-color="#00f0ff" stop-opacity=".3"/><stop offset="1" stop-color="#00f0ff" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="tc-sweep" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#00f0ff" stop-opacity=".28"/><stop offset="1" stop-color="#00f0ff" stop-opacity="0"/>
+            </linearGradient>
+            <pattern id="tc-grid" width="34" height="34" patternUnits="userSpaceOnUse">
+              <path d="M34 0H0v34" fill="none" stroke="#6fb7ff" stroke-opacity=".09" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="800" height="480" fill="url(#tc-bg)"/>
+          <rect width="800" height="480" fill="url(#tc-grid)"/>
+          <g fill="#0b1830" stroke="#2b6b9e" stroke-opacity=".5" stroke-width="1">
+            <path d="M80 110l150-28 30 108-152 30Z"/>
+            <path d="M520 66l142 34-32 122-140-34Z" opacity=".7"/>
+            <path d="M120 320l118-22 26 96-122 24Z" opacity=".8"/>
+            <path d="M410 330l96-60 92 74-96 60Z" opacity=".65"/>
+            <path d="M610 300l84 46-50 74-86-46Z" opacity=".55"/>
+          </g>
+          <g fill="none" stroke="#00f0ff" stroke-width="1.2" stroke-dasharray="7 7" opacity=".65">
+            <path d="M170 210C250 160 330 182 392 238s126 48 190 10"/>
+            <path d="M180 236C270 210 330 236 398 280s124 34 174 6" opacity=".45"/>
+          </g>
+          <path d="M646 248l20 6-14 15" fill="none" stroke="#00f0ff" stroke-width="1.4"/>
+          <circle cx="602" cy="238" r="168" fill="url(#tc-hub)"/>
+          <g fill="none" stroke="#00f0ff" opacity=".45">
+            <circle cx="602" cy="238" r="66"/>
+            <circle cx="602" cy="238" r="112" stroke-dasharray="2 8"/>
+            <circle cx="602" cy="238" r="158" stroke-dasharray="1 14"/>
+            <path d="M602 70v336M434 238h336" opacity=".25"/>
+          </g>
+          <path d="M602 238 602 80a158 158 0 0 1 137 79Z" fill="url(#tc-sweep)"/>
+          <g fill="#ff5c7a">
+            <circle cx="470" cy="185" r="5"/><circle cx="512" cy="306" r="4.5"/><circle cx="688" cy="160" r="4"/>
+          </g>
+          <g fill="none" stroke="#ff5c7a" stroke-width="1" opacity=".7">
+            <path d="M456 171h28v28h-28zM500 292h24v24h-24zM676 148h24v24h-24z"/>
+          </g>
+          <g fill="#7df9ff">
+            <circle cx="196" cy="214" r="3"/><circle cx="358" cy="252" r="3"/><circle cx="612" cy="352" r="3"/>
+          </g>
+          <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#7df9ff" opacity=".7">
+            <text x="32" y="44">TACTICAL AI // BEHAVIOUR TREE</text>
+            <text x="32" y="60" fill="#8b9bb0" opacity=".7">SQUAD LINK — STABLE</text>
+            <text x="740" y="444" text-anchor="end" fill="#ff8fa3">HOSTILES: 03</text>
+          </g>
+        </svg>
+      </template>
+
+      <template id="art-boids">
+        <svg class="card-art" viewBox="0 0 800 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="sw-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#080516"/><stop offset=".55" stop-color="#100a25"/><stop offset="1" stop-color="#06151d"/>
+            </linearGradient>
+            <radialGradient id="sw-glow" cx="50%" cy="50%" r="50%">
+              <stop stop-color="#00f0ff" stop-opacity=".26"/>
+              <stop offset=".45" stop-color="#7000ff" stop-opacity=".22"/>
+              <stop offset="1" stop-color="#7000ff" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="sw-fade" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+              <stop offset=".62" stop-color="#fff" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </radialGradient>
+            <mask id="sw-mask"><rect width="800" height="480" fill="#000"/><circle cx="410" cy="240" r="240" fill="url(#sw-fade)"/></mask>
+            <pattern id="sw-dots" width="17" height="17" patternUnits="userSpaceOnUse">
+              <circle cx="3" cy="4" r="1.4" fill="#6cf6ff" opacity=".75"/>
+              <circle cx="12" cy="11" r="1" fill="#a78bfa" opacity=".65"/>
+              <circle cx="15" cy="3" r=".7" fill="#00f0ff" opacity=".5"/>
+            </pattern>
+            <pattern id="sw-dots-lg" width="46" height="46" patternUnits="userSpaceOnUse">
+              <circle cx="8" cy="14" r="2.4" fill="#00f0ff" opacity=".85"/>
+              <circle cx="33" cy="31" r="2" fill="#9b6bff" opacity=".8"/>
+            </pattern>
+          </defs>
+          <rect width="800" height="480" fill="url(#sw-bg)"/>
+          <circle cx="410" cy="240" r="286" fill="url(#sw-glow)"/>
+          <g mask="url(#sw-mask)">
+            <circle cx="410" cy="240" r="240" fill="url(#sw-dots)"/>
+            <circle cx="410" cy="240" r="190" fill="url(#sw-dots-lg)" opacity=".55"/>
+          </g>
+          <g fill="none" stroke="#00f0ff" stroke-width="1" opacity=".35">
+            <path d="M180 300c46-98 144-146 240-120s150 96 128 174-114 116-202 94-158-66-166-148Z"/>
+            <path d="M228 286c38-72 116-108 192-90s122 76 104 138-92 92-162 74-124-52-134-122Z" stroke-dasharray="4 9" opacity=".7"/>
+            <path d="M278 272c30-46 86-70 144-56s88 62 70 104-74 68-124 52-88-44-90-100Z" opacity=".5"/>
+          </g>
+          <g stroke="#a78bfa" stroke-width="1" opacity=".5" fill="none">
+            <path d="M262 248l52-18M338 168l24 40M486 154l10 44M552 206l40-14M574 340l-30 24M396 396l-16-32M250 338l44 10"/>
+          </g>
+          <g fill="none" stroke="#7df9ff" stroke-width="1.4" opacity=".8">
+            <circle cx="410" cy="240" r="48"/>
+            <circle cx="410" cy="240" r="60" stroke-dasharray="2 7" opacity=".5"/>
+            <path d="M410 156v-22M410 324v24M326 240h-24M494 240h24"/>
+          </g>
+          <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#7df9ff" opacity=".7">
+            <text x="32" y="44">GPU COMPUTE // BOIDS FIELD</text>
+            <text x="32" y="60" fill="#8b9bb0" opacity=".7">AGENTS 100,000 — 120 Hz</text>
+            <text x="740" y="444" text-anchor="end" fill="#a78bfa">COMPUTE 4.8 ms</text>
+          </g>
+        </svg>
+      </template>
     </section>
 
     <!-- Sección Lab Interactivo -->
@@ -570,35 +489,32 @@
           <span class="eyebrow"><b>03</b> TOOLCHAIN</span>
           <h2><span data-i18n="stack.title">Stack</span> <span class="text-dim" data-i18n="stack.titleAccent">Técnico</span></h2>
         </div>
-        <p class="section-desc" data-i18n="stack.desc">Herramientas, lenguajes y pipeline usados a diario para llevar prototipos hasta build final.</p>
+        <p class="section-desc" data-i18n="stack.desc">Stack de desarrollo centrado en Unity, Unreal Engine y C# para crear videojuegos y simulaciones en tiempo real.</p>
       </div>
 
       <div class="stack-grid">
         <div class="stack-box" data-reveal>
           <span class="stack-index">/ 01</span>
-          <h4 data-i18n="stack.engines">Motores &amp; Frameworks</h4>
+          <h4 data-i18n="stack.engines">Motores</h4>
           <ul>
-            <li><span class="li-mark">+</span>Unreal Engine 5 (Blueprints &amp; C++)</li>
-            <li><span class="li-mark">+</span>Unity 6 (URP / HDRP / DOTS)</li>
-            <li><span class="li-mark">+</span>Godot 4 / WebGL / Three.js</li>
+            <li><span class="li-mark">+</span>Unity</li>
+            <li><span class="li-mark">+</span>Unreal Engine 5</li>
           </ul>
         </div>
         <div class="stack-box" data-reveal>
           <span class="stack-index">/ 02</span>
-          <h4 data-i18n="stack.programming">Programación &amp; Gráficos</h4>
+          <h4 data-i18n="stack.programming">Lenguaje</h4>
           <ul>
-            <li><span class="li-mark">+</span>C++ / C# / Python</li>
-            <li><span class="li-mark">+</span>HLSL / GLSL / Shader Graph</li>
-            <li><span class="li-mark">+</span><span data-i18n="stack.math">Matemática Vectorial y Cinemática</span></li>
+            <li><span class="li-mark">+</span>C#</li>
           </ul>
         </div>
         <div class="stack-box" data-reveal>
           <span class="stack-index">/ 03</span>
-          <h4 data-i18n="stack.pipeline">Pipeline &amp; Herramientas</h4>
+          <h4 data-i18n="stack.areas">Áreas de desarrollo</h4>
           <ul>
-            <li><span class="li-mark">+</span>Git / Perforce / Plastic SCM</li>
-            <li><span class="li-mark">+</span>Blender / Substance Painter</li>
-            <li><span class="li-mark">+</span>RenderDoc / Unreal Insights (Profiling)</li>
+            <li><span class="li-mark">+</span><span data-i18n="stack.areaPlay">Gameplay</span></li>
+            <li><span class="li-mark">+</span><span data-i18n="stack.areaSystems">Sistemas interactivos</span></li>
+            <li><span class="li-mark">+</span><span data-i18n="stack.areaSim">Simulación en tiempo real</span></li>
           </ul>
         </div>
       </div>
@@ -616,8 +532,8 @@
       <h2><span data-i18n="contact.title">¿Construimos el próximo</span><br><span class="gradient-text" data-i18n="contact.titleAccent">mundo virtual?</span></h2>
       <p data-i18n="contact.desc">Disponible para estudios de videojuegos, proyectos de simulación industrial, VR/AR y desarrollo técnico.</p>
       <div class="social-links">
-        <a href="mailto:tuemail@dominio.com" class="btn-primary">
-          <span>tuemail@dominio.com</span>
+        <a href="mailto:juandiex2005@hotmail.com" class="btn-primary">
+          <span>juandiex2005@hotmail.com</span>
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
         </a>
         <a href="#" onclick="return false" class="btn-secondary">GitHub</a>

@@ -1,0 +1,177 @@
+{
+  "categories": [
+    {
+      "id": "videojuegos",
+      "label": {
+        "es": "Videojuegos",
+        "en": "Games"
+      }
+    },
+    {
+      "id": "simulaciones",
+      "label": {
+        "es": "Simulaciones",
+        "en": "Simulations"
+      }
+    },
+    {
+      "id": "shaders-tech",
+      "label": {
+        "es": "Shaders / Tech",
+        "en": "Shaders / Tech"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "sim1",
+      "category": "simulaciones",
+      "layout": "featured",
+      "visual": "fluid",
+      "mediaCode": "SYS.01",
+      "engine": "UE5",
+      "tech": "Unreal Engine 5 • C++ • Chaos Physics • OpenXR",
+      "tags": {
+        "es": "SIMULACIÓN FÍSICA // VR",
+        "en": "PHYSICS SIMULATION // VR"
+      },
+      "preview": {
+        "es": "VISTA PREVIA / REEL",
+        "en": "PREVIEW / REEL"
+      },
+      "title": {
+        "es": "Simulador Dinámico de Fluidos y Estructuras",
+        "en": "Dynamic Fluid & Structural Simulator"
+      },
+      "description": {
+        "es": "Entorno de entrenamiento industrial en realidad virtual con destrucción procedural en tiempo real y telemetría de estrés estructural.",
+        "en": "Industrial VR training environment with real-time procedural destruction and structural stress telemetry."
+      },
+      "specs": [
+        "REALTIME",
+        "VR",
+        "CHAOS"
+      ],
+      "link": {
+        "url": "",
+        "label": {
+          "es": "GitHub",
+          "en": "GitHub"
+        }
+      },
+      "details": {
+        "es": {
+          "challenge": "Simular fracturas en tiempo real y flujo de fluidos manteniendo 90 FPS estables en visores VR standalone.",
+          "solution": "Implementación de pre-fractura jerárquica mediante Chaos Geometry Collections, LODs dinámicos basados en distancia al jugador y cálculo asíncrono de colisiones en hilos secundarios.",
+          "metrics": "Reducción del 42% en tiempo de frame de CPU y latencia motion-to-photon inferior a 18 ms."
+        },
+        "en": {
+          "challenge": "Simulate real-time fractures and fluid flow while maintaining a stable 90 FPS on standalone VR headsets.",
+          "solution": "Hierarchical pre-fracturing with Chaos Geometry Collections, dynamic distance-based LODs and asynchronous collision computation on worker threads.",
+          "metrics": "42% reduction in CPU frame time and motion-to-photon latency below 18 ms."
+        }
+      }
+    },
+    {
+      "id": "game1",
+      "category": "videojuegos",
+      "layout": "standard",
+      "visual": "tactical",
+      "mediaCode": "GAME.02",
+      "engine": "UNITY",
+      "tech": {
+        "es": "Unity • C# • IA Behaviour Trees",
+        "en": "Unity • C# • Behaviour Tree AI"
+      },
+      "tags": {
+        "es": "VIDEOJUEGO // ACTION",
+        "en": "GAME // ACTION"
+      },
+      "preview": {
+        "es": "DEMO JUGABLE",
+        "en": "PLAYABLE DEMO"
+      },
+      "title": {
+        "es": "Protocolo Aegis: Tactical Shooter",
+        "en": "Aegis Protocol: Tactical Shooter"
+      },
+      "description": {
+        "es": "Sistema de combate táctico con IA enemiga adaptativa, cobertura dinámica y balística calculada por trayectoria.",
+        "en": "Tactical combat system with adaptive enemy AI, dynamic cover and trajectory-based ballistics."
+      },
+      "specs": [
+        "GAMEPLAY",
+        "AI",
+        "NAVMESH"
+      ],
+      "link": {
+        "url": "",
+        "label": {
+          "es": "Jugar WebGL",
+          "en": "Play WebGL"
+        }
+      },
+      "details": {
+        "es": {
+          "challenge": "Crear escuadrones enemigos capaces de flanquear y coordinar fuego de supresión sin depender de rutas pre-programadas.",
+          "solution": "Sistema de evaluación táctica de puntos de cobertura mediante Raycasting espacial y árboles de comportamiento modulares.",
+          "metrics": "Soporte para 24 agentes simultáneos con un coste menor a 1.5 ms por frame."
+        },
+        "en": {
+          "challenge": "Create enemy squads capable of flanking and coordinating suppressive fire without relying on pre-scripted routes.",
+          "solution": "Tactical evaluation of cover points using spatial raycasting and modular behaviour trees.",
+          "metrics": "Support for 24 simultaneous agents at a cost below 1.5 ms per frame."
+        }
+      }
+    },
+    {
+      "id": "tech1",
+      "category": "shaders-tech",
+      "layout": "wide",
+      "visual": "boids",
+      "mediaCode": "TECH.03",
+      "engine": "HLSL",
+      "tech": "HLSL • Compute Shaders • Niagara",
+      "tags": {
+        "es": "SHADER // GPU",
+        "en": "SHADER // GPU"
+      },
+      "preview": {
+        "es": "TECH BREAKDOWN",
+        "en": "TECH BREAKDOWN"
+      },
+      "title": {
+        "es": "Simulación de Multitudes (100k Entidades)",
+        "en": "Crowd Simulation (100k Entities)"
+      },
+      "description": {
+        "es": "Algoritmo Boids ejecutado íntegramente en GPU mediante Compute Shaders para simular enjambres masivos a 120 FPS.",
+        "en": "Boids algorithm running entirely on the GPU through Compute Shaders to simulate massive swarms at 120 FPS."
+      },
+      "specs": [
+        "COMPUTE",
+        "100K AGENTS",
+        "120 FPS"
+      ],
+      "link": {
+        "url": "",
+        "label": {
+          "es": "Código",
+          "en": "Code"
+        }
+      },
+      "details": {
+        "es": {
+          "challenge": "Renderizar y simular el comportamiento colectivo (Boids) de 100,000 entidades sin saturar el bus CPU-GPU.",
+          "solution": "Almacenamiento de posiciones y velocidades en ComputeBuffers y ejecución paralela de reglas de cohesión, alineación y separación directamente en la GPU.",
+          "metrics": "120 FPS constantes en resolución 1440p con 100,000 instancias activas."
+        },
+        "en": {
+          "challenge": "Render and simulate the collective Boids behaviour of 100,000 entities without saturating the CPU-GPU bus.",
+          "solution": "Positions and velocities stored in ComputeBuffers with parallel execution of cohesion, alignment and separation rules directly on the GPU.",
+          "metrics": "Constant 120 FPS at 1440p with 100,000 active instances."
+        }
+      }
+    }
+  ]
+}

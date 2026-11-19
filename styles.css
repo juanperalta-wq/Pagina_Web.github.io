@@ -288,81 +288,6 @@ body.is-scrolled #sim-canvas {
   writing-mode: vertical-rl;
 }
 
-/* Custom cursor */
-.cursor-ring,
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0;
-  will-change: transform;
-}
-
-.cursor-ring {
-  width: 32px;
-  height: 32px;
-  margin: -16px 0 0 -16px;
-  border: 1px solid rgba(0, 240, 255, 0.65);
-  border-radius: 50%;
-  transition: width 0.25s var(--ease), height 0.25s var(--ease),
-    margin 0.25s var(--ease), background-color 0.25s var(--ease),
-    border-color 0.25s var(--ease), opacity 0.2s linear;
-  mix-blend-mode: screen;
-}
-
-.cursor-ring::before,
-.cursor-ring::after {
-  content: '';
-  position: absolute;
-  background: rgba(0, 240, 255, 0.55);
-}
-
-.cursor-ring::before {
-  width: 1px;
-  height: 7px;
-  top: -4px;
-  left: 50%;
-}
-
-.cursor-ring::after {
-  width: 7px;
-  height: 1px;
-  left: -4px;
-  top: 50%;
-}
-
-.cursor-dot {
-  width: 4px;
-  height: 4px;
-  margin: -2px 0 0 -2px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.9);
-}
-
-html.cursor-ready,
-html.cursor-ready a,
-html.cursor-ready button,
-html.cursor-ready input,
-html.cursor-ready [data-tilt] {
-  cursor: none;
-}
-
-html.cursor-active .cursor-ring,
-html.cursor-active .cursor-dot {
-  opacity: 1;
-}
-
-html.cursor-hover .cursor-ring {
-  width: 54px;
-  height: 54px;
-  margin: -27px 0 0 -27px;
-  background: rgba(0, 240, 255, 0.06);
-  border-color: rgba(0, 240, 255, 0.9);
-}
-
 /* ------------------------------------------------------------
    3. NAVBAR
    ------------------------------------------------------------ */
@@ -1263,6 +1188,18 @@ h2 {
 .results-count b {
   color: var(--cyan);
   font-weight: 500;
+}
+
+.projects-empty {
+  margin-top: 1.2rem;
+  padding: 1.35rem 1.5rem;
+  border: 1px dashed rgba(125, 249, 255, 0.18);
+  background: rgba(3, 5, 9, 0.45);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
 }
 
 /* ------------------------------------------------------------
@@ -2725,11 +2662,6 @@ input[type="range"]:focus-visible::-webkit-slider-thumb {
   .inspector-body {
     max-height: 460px;
   }
-
-  .cursor-ring,
-  .cursor-dot {
-    display: none;
-  }
 }
 
 @media (max-width: 370px) {
@@ -2777,10 +2709,5 @@ input[type="range"]:focus-visible::-webkit-slider-thumb {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
-  }
-
-  .cursor-ring,
-  .cursor-dot {
-    display: none;
   }
 }
